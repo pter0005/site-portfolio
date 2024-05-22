@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minha Página</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 60px;
+            padding: 10px;
+            background: linear-gradient(to bottom, #000000, #333333);
+            color: #fff;
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        header {
+            background-color: #222;
+            padding: 20px;
+            text-align: center;
+            position: fixed;
+            width: 100%;
+            z-index: 999;
+            top: 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #ccc;
+            font-size: 1rem;
+            transition: color 0.3s ease, background-color 0.3s ease;
+            margin: 0 10px;
+            padding: 5px;
+            border-radius: 5px;
+            border: 1px solid transparent;
+        }
+
+        nav a:hover {
+            color: #ff6600;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        main {
+            padding-top: 120px;
+            text-align: center;
+        }
+
+        .profile-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-direction: row;
+            margin-bottom: 50px;
+            padding: 0 20px;
+        }
+
+        .profile-name {
+            text-align: left;
+        }
+
+        .profile-name h1 {
+            font-size: 2.5rem;
+            margin: 0;
+        }
+
+        .profile-name p {
+            font-size: 1.5rem;
+            margin: 5px 0;
+        }
+
+        .profile-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: radial-gradient(circle, #ff99cc, #ff3399);
+            background-image: url(/images/euuuuuuuu.png);
+            background-size: cover;
+            border: 4px solid #fff;
+            transition: transform 0.5s ease;
+        }
+
+        .profile-image:hover {
+            transform: rotate(360deg);
+        }
+
+        .info, .skills, .projects, .contact {
+            background-color: #222;
+            color: #ccc;
+            padding: 0px;
+            margin: 100px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: #ff6600;
+        }
+
+        .skill-item, .project {
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .skill-item:hover, .project:hover {
+            transform: translateY(-5px);
+        }
+
+        h3 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            color: #fff;
+        }
+
+        p {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .skills-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .skill {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .skill img {
+            width: 50px;
+            height: 50px;
+        }
+
+        .skill p {
+            margin-top: 10px;
+            font-size: 1rem;
+        }
+
+        .skill:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .projects-container {
+            display: flex;
+            flex-direction: column;
+           	align-items: center;
+            gap: 20px;
+        }
+
+        .project {
+            width: 80%;
+            background-color: #333;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .project:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+        }
+
+        .project a {
+            text-decoration: none;
+            color: #ff6600;
+            display: block;
+            margin-top: 10px;
+            font-size: 1.2rem;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            margin-top: 20px;
+        }
+
+        .contact-info a {
+            text-decoration: none;
+            color: #ff6600;
+            font-size: 1.5rem;
+            margin: 5px 0;
+        }
+
+        .contact-info p {
+            font-size: 1.5rem;
+            margin: 5px 0;
+        }
+
+        .contact-icons {
+            display: flex;
+            justify-content: left;
+            align-items: left;
+            margin-top: 20px;
+        }
+
+        .contact-github, .contact-linkedin {
+            margin: 0 10px; 
+            
+        }
+
+        .contact-github img, .contact-linkedin img {
+            width: 60px; 
+            height: 60px;
+            object-fit: contain;
+        }
+
+        footer {
+            background-color: #222;
+            color: #ccc;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            nav a {
+                margin: 0 10px;
+                font-size: 1rem;
+            }
+
+            .profile-info {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .profile-name {
+                text-align: center;
+            }
+
+            .profile-name h1 {
+                font-size: 2rem;
+            }
+
+            .profile-name p {
+                font-size: 1rem;
+            }
+
+            .profile-image {
+                width: 100px;
+                height: 100px;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            h3 {
+                font-size: 1.5rem;
+            }
+
+            p {
+                font-size: 1.2rem;
+            }
+
+            .skill img {
+                width: 40px;
+                height: 40px;
+            }
+
+            .skill p {
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            nav a {
+                margin: 0 5px;
+                font-size: 0.8rem;
+            }
+
+            .profile-name h1 {
+                font-size: 1.5rem;
+            }
+
+            .profile-name p {
+                font-size: 0.9rem;
+            }
+
+            .profile-image {
+                width: 80px;
+                height: 80px;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            h3 {
+                font-size: 1.2rem;
+            }
+
+            p {
+                font-size: 1rem;
+            }
+
+            .skill img {
+                width: 30px;
+                height: 30px;
+            }
+
+            .skill p {
+                font-size: 0.8rem;
+            }
+
+            .project {
+                width: 100%;
+            }
+        }
+        .profile-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #efefef00, #ff339900);
+    border: 4px solid #fff;
+    transition: transform 0.5s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /
+}
+
+.profile-image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover
+    
+}
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #222;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #ff6600;
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #ff4500;
+        }
+
+        button {
+            background-color: #ff6600;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            margin-left: 10px; /* Adiciona um espaço entre os botões */
+        }
+
+        button:hover {
+            background-color: #ff4500;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#sobre">Sobre</a>
+            <a href="#skills">Habilidades</a>
+            <a href="#projetos">Portfólio</a>
+            <a href="#contato">Contato</a>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="profile-info">
+            <div class="profile-name">
+                <h1>Olá, eu sou Pedro Henrique</h1>
+                <p>Estudante com foco no Front-End</p>
+                <div>
+                    <button>Contate-me</button>
+                    <button onclick="window.location.href='https://drive.google.com/file/d/1dZwgGAbWfLijteue4P_7I8cFmXZoTHqj/view?usp=drive_link'">Currículo</button>
+                </div>
+                <div class="contact-icons">
+                    <div class="contact-github">
+                        <a href="https://github.com/pter0005" target="_blank">
+                            <img src="images/png-transparent-github-social-media-computer-icons-logo-android-github-logo-computer-wallpaper-banner-thumbnail-removebg-preview (1).png" alt="GitHub">
+                        </a>
+                    </div>
+                    <div class="contact-linkedin">
+                        <a href="https://www.linkedin.com/in/pedro-henrique-802a04304/" target="_blank">
+                            <img src="images/1486053613-linkedin_79186.png" alt="LinkedIn">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="profile-image">
+                <img src="images/euuuuuuuu.png" alt="Eu">
+            </div>
+        </section>
+
+        <section id="sobre" class="info">
+            <h2>Sobre mim</h2>
+            <p>   Sou um estudante de Análise e Desenvolvimento de Sistemas na FIAP (Faculdade de Informática e Administração Paulista). Estou procurando uma oportunidade de estágio/desenvolvimento profissional onde eu possa aplicar meus conhecimentos em programação, desenvolvimento de software e análise de sistemas, contribuindo assim para projetos inovadores e adquirindo experiência prática no setor de tecnologia da informação. </p>
+        </section>
+
+        <section id="skills" class="skills">
+            <h2>Habilidades</h2>
+            <div class="skills-container">
+                <div class="skill">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-plain.svg" alt="HTML5">
+                    <p>HTML5</p>
+                </div>
+                <div class="skill">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-plain.svg" alt="CSS3">
+                    <p>CSS3</p>
+                </div>
+                <div class="skill">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-plain.svg" alt="JavaScript">
+                    <p>JavaScript</p>
+                </div>
+                <div class="skill">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sass/sass-original.svg" alt="SASS">
+                    <p>SASS</p>
+                </div>
+                <div class="skill">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub">
+                    <p>GitHub</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="projetos" class="projects">
+            <h2>Projetos</h2>
+            <div class="projects-container">
+                <div class="project">
+                    <h3>Projeto 1</h3>
+                    <p>Descrição detalhada do primeiro projeto, incluindo tecnologias utilizadas, desafios enfrentados e resultados alcançados.</p>
+                    <a href="#" target="_blank">Ver Projeto</a>
+                </div>
+                <div class="project">
+                    <h3>Projeto 2</h3>
+                    <p>Descrição detalhada do segundo projeto, incluindo tecnologias utilizadas, desafios enfrentados e resultados alcançados.</p>
+                    <a href="#" target="_blank">Ver Projeto</a>
+                </div>
+                <div class="project">
+                    <h3>Projeto 3</h3>
+                    <p>Descrição detalhada do terceiro projeto, incluindo tecnologias utilizadas, desafios enfrentados e resultados alcançados.</p>
+                    <a href="#" target="_blank">Ver Projeto</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="contato" class="contact">
+            <h2>Contato</h2>
+            <div class="contact-info">
+                <p>Email: <a href="mailto:pedrohenriq305@gmail.com">pedrohenriq305@gmail.com</a></p>
+                <p>Telefone: <a href="tel:+5511974962150">+55 11 97596-2150</a></p>
+            </div>
+            <div class="contact-icons">
+                <div class="contact-github">
+                    <a href="https://github.com/pter0005" target="_blank">
+                        <img src="images/png-transparent-github-social-media-computer-icons-logo-android-github-logo-computer-wallpaper-banner-thumbnail-removebg-preview (1).png" alt="GitHub">
+                    </a>
+                </div>
+                <div class="contact-linkedin">
+                    <a href="https://www.linkedin.com/in/pedro-henrique-802a04304/" target="_blank">
+                        <img src="images/" alt="LinkedIn">
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div>© 2024 Pedro Henrique | Todos os direitos reservados</div>
+        <div>
+            <a href="https://github.com/seuusuario" target="_blank">GitHub</a> | 
+            <a href="https://linkedin.com/in/seuusuario" target="_blank">LinkedIn</a>
+        </div>
+    </footer>
+</body>
+</html>
